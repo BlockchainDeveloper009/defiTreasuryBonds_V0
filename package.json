@@ -1,0 +1,28 @@
+{
+  "name": "defiTreasuryBonds_V0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlockchainDeveloper009/defiTreasuryBonds_V0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlockchainDeveloper009/defiTreasuryBonds_V0/issues"
+  },
+  "homepage": "https://github.com/BlockchainDeveloper009/defiTreasuryBonds_V0#readme",
+  "devDependencies": {
+    "hardhat": "^2.12.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.5.1",
+    "@debond-protocol/debond-bank-contracts": "0.0.3",
+    "@debond-protocol/debond-erc3475-contracts": "0.0.6"
+  }
+}
