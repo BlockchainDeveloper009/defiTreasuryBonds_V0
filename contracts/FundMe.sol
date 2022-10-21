@@ -2,6 +2,7 @@
 pragma solidity ^0.8.9;
 
 import "./libraries/PriceDataFeed.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract FundMe {
     address[] private s_funders;
@@ -66,6 +67,14 @@ contract FundMe {
      function getPriceFeed(uint256 index) public view returns (AggregatorV3Interface){
         return s_priceFeed;
     }
+    function getVersion(address tr) public view returns(uint256){
+        AggregatorV3Interface _priceFeed = AggregatorV3Interface(tr);
+        
 
+        return _priceFeed.version();
+    }
+    function getContractVersion() public view returns(uint256){
+        return 0;
+    }
 
 }

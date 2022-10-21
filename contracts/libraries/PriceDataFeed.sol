@@ -9,10 +9,10 @@ library PriceDataFeed {
         AggregatorV3Interface _priceFeed = AggregatorV3Interface(_addr);
         return _priceFeed.version();
     }
-    function getPrice(address _addr, AggregatorV3Interface _priceFeed) 
+    function getPrice(address _addr) 
         public view returns (uint256){
         
-        _priceFeed = AggregatorV3Interface(_addr);
+        AggregatorV3Interface _priceFeed = AggregatorV3Interface(_addr);
         (uint80 roundId, int price, 
         uint startedAt, 
         uint timeStamp,

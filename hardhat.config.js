@@ -30,6 +30,10 @@ module.exports = {
       url: ALCHEMY_API_KEY_URL,
       accounts: [MUMBAI_PRIVATE_KEY],
     },
+    default : {
+      url: "http://127.0.0.1:8545",
+      accounts: [],
+    }
   },
   etherscan: {
     apiKey: {
