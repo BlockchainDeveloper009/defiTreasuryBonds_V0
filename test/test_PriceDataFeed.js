@@ -7,6 +7,7 @@ const {
 
   const polygonMumbai_ETHUSD = "0x0715A7794a1dc8e42615F059dD6e406A6594651A";
   const polygonMainnet_ETHUSD = "0xf9680d99d6c9589e2a93a78a04a279e509205945";
+  const GOERLITESTNET_ETHUSD_ADDR = "0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e";
   
   describe("PriceDataFeed", function () {
     // We define a fixture to reuse the same setup in every test.
@@ -22,7 +23,7 @@ const {
       // Contracts are deployed using the first signer/account by default
       const [owner, otherAccount] = await ethers.getSigners();
   
-      const Lock = await ethers.getContractFactory("FundMe");
+      const Lock = await ethers.getContractFactory("PriceDataFeed");
       const lock = await Lock.deploy();
   
       return { lock, unlockTime, lockedAmount, owner, otherAccount };
@@ -67,13 +68,13 @@ const {
         it("test1", async function () {
             const { lock } = await loadFixture(deployOneYearLockFixture);
             
-            const {v} = await lock.getVersion('0x0715A7794a1dc8e42615F059dD6e406A6594651A');
+            const {actual} = await lock.getVersion('0x0715A7794a1dc8e42615F059dD6e406A6594651A');
             console.log('-----');
             console.log(v);
             console.log('-----');
-            // await expect(lock.withdraw()).to.be.revertedWith(
-            //   "You can't withdraw yet"
-            // );
+            await expect(actual).to.be.revertedWith(
+              "Matched with Version 4"
+            );
           });
 
         it("Should revert with the right error if called too soon", async function () {

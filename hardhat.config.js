@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config({ path: ".env" });
 require("@nomiclabs/hardhat-etherscan");
+require("./tasks/block-number");
 
 const ALCHEMY_API_KEY_URL = process.env.ALCHEMY_API_KEY_URL;
 
@@ -30,8 +31,9 @@ module.exports = {
       url: ALCHEMY_API_KEY_URL,
       accounts: [MUMBAI_PRIVATE_KEY],
     },
-    default : {
+    localhost : {
       url: "http://127.0.0.1:8545",
+      chainId: 31337,
       accounts: [],
     }
   },

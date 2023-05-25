@@ -25,8 +25,10 @@ const {
 
       const Lib = await ethers.getContractFactory("PriceDataFeed");
       const lib = await Lib.deploy();
+
       await lib.deployed();
   
+      
       const Lock = await ethers.getContractFactory("FundMe", {
         signer: owner,
         libraries: {
